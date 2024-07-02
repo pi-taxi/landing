@@ -1,4 +1,5 @@
 'use client'
+
 import i18next from 'i18next'
 import resourcesToBackend from 'i18next-resources-to-backend'
 import {
@@ -26,23 +27,27 @@ i18next
 
 export function useTranslation(lang: string) {
 	const { t, i18n } = useTranslationOrigin()
+
 	useEffect(() => {
-		const changingLanguage = lang && lang !== i18n.resolvedLanguage
-		if (changingLanguage) {
+		const shouldChangeLanguage = lang && lang !== i18n.resolvedLanguage
+		if (shouldChangeLanguage) {
 			i18n.changeLanguage(lang)
 		}
 	}, [lang, i18n])
+
 	return { t, i18n }
 }
 
-interface Props {
+interface LanguageContextType {
 	language: string
 	setLanguage: (language: string) => void
 }
 
-const LanguageContext = createContext<Props | undefined>(undefined)
+const LanguageContext = createContext<LanguageContextType | undefined>(
+	undefined
+)
 
-interface ProviderProps {
+interface LanguageProviderProps {
 	children: ReactNode
 	initialLanguage: string
 }
@@ -50,7 +55,7 @@ interface ProviderProps {
 export const LanguageProvider = ({
 	children,
 	initialLanguage,
-}: ProviderProps) => {
+}: LanguageProviderProps) => {
 	const [language, setLanguage] = useState<string>(initialLanguage)
 
 	return (
@@ -60,7 +65,7 @@ export const LanguageProvider = ({
 	)
 }
 
-export const useLanguage = (): Props => {
+export const useLanguage = (): LanguageContextType => {
 	const context = useContext(LanguageContext)
 	if (!context) {
 		throw new Error('useLanguage must be used within a LanguageProvider')

@@ -1,4 +1,3 @@
-// Assuming getInitialLanguage is a function that fetches the initial language
 export const defaultLanguage = 'tk'
 
 export const availableLanguages = [defaultLanguage, 'ru', 'en']
