@@ -1,0 +1,36 @@
+import Image from 'next/image'
+import Link from 'next/link'
+
+export const Header = () => {
+	return (
+		<div className='flex flex-col lg:flex-row items-center justify-center  lg:px-[64px] py-10 w-full lg:justify-between'>
+			<Image
+				src='/logo.svg'
+				alt='logo'
+				width={290}
+				height={56}
+				className='w-[156px] h-[30px] lg:w-[260px] lg:h-[46px] xl:w-[290px] xl:h-[56px]'
+			/>
+			<div className='flex gap-x-10 items-center '>
+				<Link
+					href=''
+					className='text-[16px] xl:text-[28px] text-white hidden lg:flex'
+				>
+					Стать водителем
+				</Link>
+				<Link
+					href=''
+					className=' text-[16px] xl:text-[28px] text-white hidden lg:flex'
+				>
+					Служба поддержки
+				</Link>
+				<Link
+					href=''
+					className='text-[16px] mt-2 lg:mt-0 xl:text-[28px] text-white'
+				>
+					Phone: 137377
+				</Link>
+			</div>
+		</div>
+	)
+}
