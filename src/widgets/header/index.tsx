@@ -9,12 +9,12 @@ export const Header = () => {
 				alt='logo'
 				width={290}
 				height={56}
-				className='w-[156px] h-[30px] lg:w-[230px] lg:h-[32px] xl:w-[240px] xl:h-[46px]'
+				className='w-[156px] h-[30px] lg:h-[26px] xl:h-[36px]'
 			/>
 			<div className='flex gap-x-10 items-center '>
 				<Link
 					href=''
-					className='text-[16px] xl:text-[22px] text-white hidden lg:flex'
+					className='text-[16px]  xl:text-[22px] text-white hidden lg:flex'
 				>
 					Стать водителем
 				</Link>
