@@ -12,6 +12,9 @@ const Topside = () => {
 	const [title, setTitle] = useState('Taxi order and parcel delivery')
 
 	useEffect(() => {
+		if (pathname === '/') {
+			router.push('/ru')
+		}
 		const initialLocale = getInitialLanguage()
 		router.replace(`/${initialLocale}`)
 	}, [router])
