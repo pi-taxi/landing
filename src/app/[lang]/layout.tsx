@@ -1,10 +1,8 @@
 import { Footer } from '@/widgets/footer'
 import { Header } from '@/widgets/header'
 import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
+import { LanguageProvider } from '../i18n/client'
 import './globals.css'
-
-const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
 	title: 'PiTaxi',
@@ -13,8 +11,10 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
 	children,
+	params: { lang },
 }: Readonly<{
 	children: React.ReactNode
+	params: { lang: string }
 }>) {
 	return (
 		<html lang='en'>
@@ -22,9 +22,11 @@ export default function RootLayout({
 				<link rel='icon' href='/favicon.svg' />
 			</head>
 			<body>
-				<Header />
-				{children}
-				<Footer />
+				<LanguageProvider initialLanguage={lang}>
+					<Header />
+					{children}
+					<Footer />
+				</LanguageProvider>
 			</body>
 		</html>
 	)

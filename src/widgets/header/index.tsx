@@ -1,7 +1,12 @@
+'use client'
+import { useLanguage, useTranslation } from '@/app/i18n/client'
 import Image from 'next/image'
 import Link from 'next/link'
 
 export const Header = () => {
+	const { language } = useLanguage()
+	const { t } = useTranslation(language)
+
 	return (
 		<div className='flex flex-col lg:flex-row items-center justify-center  lg:px-[64px] py-10 w-full lg:justify-between'>
 			<Image
@@ -16,19 +21,19 @@ export const Header = () => {
 					href=''
 					className='text-[16px]  xl:text-[22px] text-white hidden lg:flex'
 				>
-					Стать водителем
+					{t('Become a driver')}
 				</Link>
 				<Link
 					href=''
 					className=' text-[16px] xl:text-[22px] text-white hidden lg:flex'
 				>
-					Служба поддержки
+					{t('Support')}
 				</Link>
 				<Link
 					href=''
 					className='text-[16px] mt-2 lg:mt-0 xl:text-[22px] text-white'
 				>
-					Phone: 137377
+					{t('Phone')}: 137377
 				</Link>
 			</div>
 		</div>
